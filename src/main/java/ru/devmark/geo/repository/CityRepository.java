@@ -22,26 +22,26 @@ public class CityRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-public List<Map<String, Object>> getParamMaps() {
-    return jdbcTemplate.query(
-            "select id, name, population from city order by name",
-            new ColumnMapRowMapper()
-    );
-}
+    public List<Map<String, Object>> getParamMaps() {
+        return jdbcTemplate.query(
+                "select id, name, population from city order by name",
+                new ColumnMapRowMapper()
+        );
+    }
 
-public List<City> getAllBeansOrderedByName() {
-    return jdbcTemplate.query(
-            "select id, name, population from city order by name",
-            new BeanPropertyRowMapper<>(City.class)
-    );
-}
+    public List<City> getAllBeansOrderedByName() {
+        return jdbcTemplate.query(
+                "select id, name, population from city order by name",
+                new BeanPropertyRowMapper<>(City.class)
+        );
+    }
 
-public List<CityRecord> getAllRecordsOrderedByName() {
-    return jdbcTemplate.query(
-            "select id, name, population from city order by name",
-            new DataClassRowMapper<>(CityRecord.class)
-    );
-}
+    public List<CityRecord> getAllRecordsOrderedByName() {
+        return jdbcTemplate.query(
+                "select id, name, population from city order by name",
+                new DataClassRowMapper<>(CityRecord.class)
+        );
+    }
 
     public List<String> getAllNames() {
         return jdbcTemplate.query(
